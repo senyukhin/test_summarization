@@ -5,8 +5,8 @@ import pandas as pd
 st.title("Сравнение саммаризации")
 st.write("Для саммаризации использовалась модель YandexGPT c промптом `Сократи дневниковую запись`")
 
-df = pd.read_csv('data/summary_all.csv')
-# df = df.loc[df['tokens_count'] > 256]
+df = pd.read_csv(st.secrets["db_link"])
+
 
 row_selection = st.selectbox('Выберите строку', df.index)
 selected_row = df.loc[row_selection]
